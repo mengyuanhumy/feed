@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>填写采购记录</title>
+    <style type="text/css">
+        body {
+            background-color: lightblue;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        div.row{
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+            margin: auto;
+        }
+        div.column {
+            float: left;
+            width: 50%
+        }
+        div.bottom {
+            margin:auto;
+        }
+        fieldset {
+            margin-bottom: 20px;
+            border-color: lightblue;
+        }
+        label {
+            display: inline-block;
+            width: 100px;
+            text-align: right;
+            padding-right: 5px;
+        }
+
+        input[type=number], select {
+            margin-top: 10px;
+            padding-left: 5px;
+            border-top-style: none;
+            border-right-style: none;
+            border-bottom-style: solid;
+            border-left-style: solid;
+            border-color: darkgreen;
+            border-left-width: 5px;
+            width: 150px;
+            height: 25px;
+        }
+
+        input[type=submit] {
+            display: block;
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: thin;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            width: 300px;
+        }
+
+            input[type=submit]:hover {
+                background-color: #45a049;
+            }
+    </style>
+</head>
+
+
+<body>
+    <h1>填写采购记录</h1>
+
+    <p>请填写采购情况</p>
+    
+        
+    <form action="/purchase" method="get">
+        <div class="row">
+            <fieldset>
+                <legend>采购信息</legend>
+                <div class="column">
+                    <label>饼干</label>
+                    <input type="number" name="bg"> <br>
+                    <label>果泥</label>
+                    <input type="number" name="gn"> <br>
+                    <label>海绵宝宝</label>
+                    <input type="number" name="hm"> <br>
+                    <label>核桃油500ml</label>
+                    <input type="number" name="hty"> <br>
+                    <label>面条</label>
+                    <input type="number" name="mt"> <br>
+                    <label>奶粉</label>
+                    <input type="number" name="nf"> <br>
+                </div>
+
+                <div class="column">
+                    <label>泡芙</label>
+                    <input type="number" name="pf"> <br>
+                    <label>日用拉拉裤</label>
+                    <input type="number" name="day"> <br>
+                    <label>十谷米1.25kg</label>
+                    <input type="number" name="sgm"> <br>
+                    <label>夜用拉拉裤</label>
+                    <input type="number" name="night"> <br>
+                    <label>意大利面</label>
+                    <input type="number" name="ydl"> <br>
+                    <label>米粉</label>
+                    <input type="number" name="mf"> <br>
+                </div>
+            </fieldset>
+
+                <div class="bottom">
+                    <fieldset>
+                        <legend>通用信息</legend>
+                        <label>采购平台</label>
+                        <select name="store">
+                            <option value="jd">京东</option>
+                            <option value="tb">淘宝</option>
+                        </select>
+                        <label>采购时间</label>
+                        <input type="date" name="date">
+                    </fieldset>
+                </div>
+                <input type="submit" />
+        </div>
+        
+    </form>
+    
+</body>
+</html>
