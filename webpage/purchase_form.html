@@ -74,9 +74,10 @@
     <h1>填写采购记录</h1>
 
     <p>请填写采购情况</p>
-    
-        
-    <form action="/purchase" method="get">
+
+
+    <form action="/purchase_result" method="post">
+        {% csrf_token %}
         <div class="row">
             <fieldset>
                 <legend>采购信息</legend>
@@ -111,22 +112,24 @@
                 </div>
             </fieldset>
 
-                <div class="bottom">
-                    <fieldset>
-                        <legend>通用信息</legend>
-                        <label>采购平台</label>
-                        <select name="store">
-                            <option value="jd">京东</option>
-                            <option value="tb">淘宝</option>
-                        </select>
-                        <label>采购时间</label>
-                        <input type="date" name="date">
-                    </fieldset>
-                </div>
-                <input type="submit" />
+            <div class="bottom">
+                <fieldset>
+                    <legend>通用信息</legend>
+                    <label>采购平台</label>
+                    <select name="store">
+                        <option value="jd">京东</option>
+                        <option value="tb">淘宝</option>
+                    </select>
+                    <label>采购时间</label>
+                    <input type="date" name="p_date">
+                </fieldset>
+            </div>
+            <input type="submit" />
         </div>
-        
     </form>
-    
+
+    <p>param={{ param }}</p>
+    <p>row={{ row }}</p>
+
 </body>
 </html>
