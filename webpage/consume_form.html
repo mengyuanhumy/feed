@@ -1,22 +1,147 @@
 ﻿<!DOCTYPE html>
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>填写库存记录</title>
+    <style type="text/css">
+        body {
+            background-color: lightblue;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        div.row {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+            margin: auto;
+        }
+
+        div.column {
+            float: left;
+            width: 50%
+        }
+
+        div.bottom {
+            margin: auto;
+        }
+
+        fieldset {
+            margin-bottom: 20px;
+            border-color: lightblue;
+        }
+
+        label {
+            display: inline-block;
+            width: 100px;
+            text-align: right;
+            padding-right: 5px;
+        }
+
+        input[type=number] {
+            margin-top: 10px;
+            padding-left: 5px;
+            border-top-style: none;
+            border-right-style: none;
+            border-bottom-style: solid;
+            border-left-style: solid;
+            border-color: darkgreen;
+            border-left-width: 5px;
+            width: 80px;
+            height: 25px;
+        }
+
+        input[type=date], select {
+            margin-top: 10px;
+            padding-left: 5px;
+            border-top-style: none;
+            border-right-style: none;
+            border-bottom-style: solid;
+            border-left-style: solid;
+            border-color: darkgreen;
+            border-left-width: 5px;
+            width: 150px;
+            height: 25px;
+        }
+
+        input[type=submit] {
+            display: block;
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: thin;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            width: 300px;
+        }
+
+            input[type=submit]:hover {
+                background-color: #45a049;
+            }
+    </style>
 </head>
+
+
 <body>
+    <h1>填写库存记录</h1>
+
+    <p>请填写库存情况</p>
+
+
     <form action="/consume_result" method="post">
         {% csrf_token %}
-        <label>奶粉</label>
-        <input type="number" name="milk"> <br>
-        <label>纸尿裤</label>
-        <input type="number" name="wiper"> <br>
-        <input type="submit" value="Submit">
+        <div class="row">
+            <fieldset>
+                <legend>库存信息</legend>
+                <div class="column">
+                    <label>饼干</label>
+                    <input type="number" name="bg">盒<br>
+                    <label>果泥</label>
+                    <input type="number" name="gn">袋 <br>
+                    <label>海绵宝宝</label>
+                    <input type="number" name="hm">盒<br>
+                    <label>核桃油500ml</label>
+                    <input type="number" name="hty">瓶<br>
+                    <label>面条</label>
+                    <input type="number" name="mt">盒<br>
+                    <label>奶粉</label>
+                    <input type="number" name="nf">桶<br>
+                </div>
+
+                <div class="column">
+                    <label>泡芙</label>
+                    <input type="number" name="pf">盒<br>
+                    <label>日用拉拉裤</label>
+                    <input type="number" name="day">片<br>
+                    <label>十谷米1.25kg</label>
+                    <input type="number" name="sgm">袋<br>
+                    <label>夜用拉拉裤</label>
+                    <input type="number" name="night">片<br>
+                    <label>意大利面</label>
+                    <input type="number" name="ydl">盒<br>
+                    <label>米粉</label>
+                    <input type="number" name="mf">盒<br>
+                </div>
+            </fieldset>
+
+            <div class="bottom">
+                <fieldset>
+                    <legend>通用信息</legend>
+                    <label>清点时间</label>
+                    <input type="date" name="p_date" value="2020-04-21" required="required">
+                </fieldset>
+            </div>
+            <input type="submit" />
+        </div>
     </form>
 
-    <p>{{ rlt }}</p>
-    <p>{{ r2 }}</p>
+    <p>param={{ param }}</p>
+    <p>row={{ row }}</p>
 
 </body>
 </html>

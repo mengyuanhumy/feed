@@ -37,7 +37,19 @@
             padding-right: 5px;
         }
 
-        input[type=number], select {
+        input[type=number] {
+            margin-top: 10px;
+            padding-left: 5px;
+            border-top-style: none;
+            border-right-style: none;
+            border-bottom-style: solid;
+            border-left-style: solid;
+            border-color: darkgreen;
+            border-left-width: 5px;
+            width: 80px;
+            height: 25px;
+        }
+        input[type=date], select {
             margin-top: 10px;
             padding-left: 5px;
             border-top-style: none;
@@ -49,7 +61,6 @@
             width: 150px;
             height: 25px;
         }
-
         input[type=submit] {
             display: block;
             margin-top: 10px;
@@ -83,32 +94,32 @@
                 <legend>采购信息</legend>
                 <div class="column">
                     <label>饼干</label>
-                    <input type="number" name="bg"> <br>
+                    <input type="number" name="bg">盒<input type="number" name="bg_p">元<br>
                     <label>果泥</label>
-                    <input type="number" name="gn"> <br>
+                    <input type="number" name="gn">袋<input type="number" name="gn_p">元 <br>
                     <label>海绵宝宝</label>
-                    <input type="number" name="hm"> <br>
+                    <input type="number" name="hm">盒<input type="number" name="hm_p">元 <br>
                     <label>核桃油500ml</label>
-                    <input type="number" name="hty"> <br>
+                    <input type="number" name="hty">瓶<input type="number" name="hty_p">元 <br>
                     <label>面条</label>
-                    <input type="number" name="mt"> <br>
+                    <input type="number" name="mt">盒<input type="number" name="mt_p">元 <br>
                     <label>奶粉</label>
-                    <input type="number" name="nf"> <br>
+                    <input type="number" name="nf">桶<input type="number" name="nf_p">元 <br>
                 </div>
 
                 <div class="column">
                     <label>泡芙</label>
-                    <input type="number" name="pf"> <br>
+                    <input type="number" name="pf">盒<input type="number" name="pf_p">元 <br>
                     <label>日用拉拉裤</label>
-                    <input type="number" name="day"> <br>
+                    <input type="number" name="day">片<input type="number" name="day_p">元/包 <br>
                     <label>十谷米1.25kg</label>
-                    <input type="number" name="sgm"> <br>
+                    <input type="number" name="sgm">袋<input type="number" name="sgm_p">元 <br>
                     <label>夜用拉拉裤</label>
-                    <input type="number" name="night"> <br>
+                    <input type="number" name="night">片<input type="number" name="night_p">元/包 <br>
                     <label>意大利面</label>
-                    <input type="number" name="ydl"> <br>
+                    <input type="number" name="ydl">盒<input type="number" name="ydl_p">元 <br>
                     <label>米粉</label>
-                    <input type="number" name="mf"> <br>
+                    <input type="number" name="mf">盒<input type="number" name="mf_p">元 <br>
                 </div>
             </fieldset>
 

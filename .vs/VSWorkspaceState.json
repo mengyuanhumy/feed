@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\data",
+    "\\feedkid",
+    "\\webpage"
   ],
+  "SelectedNode": "\\data\\consume.py",
   "PreviewInSolutionExplorer": false
 }

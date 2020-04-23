@@ -1,0 +1,45 @@
+CREATE DEFINER=`root`@`localhost` FUNCTION `item_report`() RETURNS int
+BEGIN
+	#Routine body goes here...
+	DECLARE t_name VARCHAR(255);
+	DECLARE t_speed FLOAT;
+	DECLARE t_remain INT;
+	DECLARE t_date datetime;
+	DECLARE g_date datetime;
+	DECLARE dt_date datetime;
+	DECLARE all_quan INT;
+	DECLARE start_date datetime;
+	DECLARE affect_row INT DEFAULT 0;	
+	DECLARE done INT DEFAULT 0;
+	
+	DECLARE a_list CURSOR for SELECT item_name, quantity, date from consume WHERE valid is NULL;
+	DECLARE CONTINUE HANDLER for SQLSTATE '02000' SET done = 1;
+	
+	DELETE from item;
+	
+	OPEN a_list;
+	
+
+my_loop:LOOP
+		FETCH a_list INTO t_name, t_remain, t_date;
+		
+		SET all_quan=(SELECT SUM(quantity) as s from purchase WHERE item_name=t_name);
+		SET start_date= (SELECT MAX(date) from purchase WHERE item_name=t_name);
+		SET t_speed=all_quan/TIMESTAMPDIFF(DAY,start_date,t_date);
+		SET g_date=NOW();
+		
+		SET dt_date=date_add(NOW(), interval ROUND(t_remain/t_speed) day);
+		#RETURN dt_date;
+		
+		
+		insert into item (name,speed,remain,deplete_date,gen_date) values (t_name,t_speed,t_remain,dt_date,g_date);
+	 
+  IF done=1 THEN
+     LEAVE my_loop;
+  END IF;
+  END LOOP my_loop;
+	
+  SET affect_row=(SELECT count(*) from item);
+	CLOSE a_list;
+	RETURN affect_row;
+END
