@@ -38,9 +38,10 @@ def sqlSelect(query,param):
 	返回：游标查询到的数据，tuple格式
 	"""
 
-	if len(query)>0 and len(param)>0: #判断是否有查询参数
+	if len(query)>0 : #判断是否有查询参数
 		try: #尝试启动查询
-			row=cursor.execute(query,param)
+			if len(param)>0: row=cursor.execute(query,param)
+			else: row=cursor.execute(query)
 			if row>0: #查询正确
 				res=cursor.fetchall()
 				print("success: effect row: "+str(row))

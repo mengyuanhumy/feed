@@ -1,10 +1,9 @@
 {
   "ExpandedNodes": [
-    "",
     "\\data",
     "\\db_script",
+    "\\feedkid",
     "\\webpage"
   ],
-  "SelectedNode": "\\data\\purchase.py",
   "PreviewInSolutionExplorer": false
 }

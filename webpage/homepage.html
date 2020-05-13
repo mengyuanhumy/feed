@@ -39,11 +39,13 @@
             <th>{{ item }}</th>
             {% endfor %}
         </tr>
+        {% for row in td%}
         <tr>
-            {% for item in td %}
+            {% for item in row %}
             <td>{{ item }}</td>
             {% endfor %}
         </tr>
+        {%endfor%}
     </table>
 
 
